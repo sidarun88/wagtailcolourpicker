@@ -8,7 +8,7 @@ Installation
 
 .. code:: bash
 
-   pip install git+https://github.com/Vadim-Karpenko/wagtailcolourpicker.git@master
+   pip install git+https://github.com/sidarun88/wagtailcolourpicker.git@master
 
 Setup
 -----
@@ -71,7 +71,7 @@ Clone the repo
 
 .. code:: bash
 
-    $ git clone https://github.com/AccentDesign/wagtailcolourpicker.git
+    $ git clone https://github.com/sidarun88/wagtailcolourpicker.git
 
 Run the docker container
 

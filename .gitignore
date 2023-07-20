@@ -12,3 +12,5 @@
 /htmlcov/
 /node_modules/
 /wagtailcolourpicker.egg-info/
+.env
+*.iml

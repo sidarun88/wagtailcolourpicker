@@ -32,8 +32,14 @@ Settings
    WAGTAILCOLOURPICKER_ICON = ['...']
    # Add your colours
    WAGTAILCOLOURPICKER_COLOURS = {
-      'black': '#000000',
-      'white': '#ffffff'
+      'black': {
+            'hex_code': '#000000',
+            'css_class': 'text-black'
+        },
+        'white': {
+            'hex_code': '#ffffff',
+            'css_class': 'text-white'
+        }
    }
 
 Models

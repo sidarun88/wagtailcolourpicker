@@ -13,8 +13,14 @@ SETTINGS_DEFAULTS = {
         '255.744-147.883 113.323-331.989z'
     ],
     'COLOURS': {
-        'black': '#000000',
-        'white': '#ffffff'
+        'black': {
+            'hex_code': '#000000',
+            'css_class': 'text-black'
+        },
+        'white': {
+            'hex_code': '#ffffff',
+            'css_class': 'text-white'
+        }
     }
 }
 

@@ -5,7 +5,8 @@ from wagtailcolourpicker.conf import get_setting
 
 
 def get_colour_choices():
-    return tuple(get_setting('COLOURS').items())
+    choices = {name: prop['hex_code'] for name, prop in get_setting('COLOURS').items()}
+    return tuple(choices.items())
 
 
 def get_feature_name(name):
@@ -21,11 +22,11 @@ def get_feature_name_list():
     return [get_feature_name_upper(name) for name in get_setting('COLOURS').keys()]
 
 
-def register_color_feature(name, colour, features):
+def register_color_feature(name, colour, css_class, features):
     feature_name = get_feature_name(name)
     type_ = get_feature_name_upper(name)
     tag = 'span'
-    detection = '%s[style="color: %s;"]' % (tag, colour)
+    detection = '%s[class="%s"]' % (tag, css_class)
 
     control = {
         'type': type_,
@@ -45,9 +46,7 @@ def register_color_feature(name, colour, features):
                 type_: {
                     'element': tag,
                     'props': {
-                        'style': {
-                            'color': colour
-                        }
+                        'class': css_class,
                     }
                 }
             }
@@ -58,8 +57,10 @@ def register_color_feature(name, colour, features):
 
 
 def register_all_colour_features(features):
-    for name, colour in get_setting('COLOURS').items():
-        register_color_feature(name, colour, features)
+    for name, colour_props in get_setting('COLOURS').items():
+        colour = colour_props['hex_code']
+        css_class = colour_props['css_class']
+        register_color_feature(name, colour, css_class, features)
 
 
 def get_list_colour_features_name():
@@ -69,7 +70,7 @@ def get_list_colour_features_name():
     """
     list_features_name = list()
 
-    for name, colour in get_setting('COLOURS').items():
+    for name, colour_props in get_setting('COLOURS').items():
         name_feature = get_feature_name(name)
         list_features_name.append(name_feature)
     return list_features_name

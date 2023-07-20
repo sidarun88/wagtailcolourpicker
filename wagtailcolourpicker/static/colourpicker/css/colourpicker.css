@@ -1,3 +1,6 @@
+.colour-form {
+    padding-top: 20px;
+}
 form #id_colour div {
     display: inline-block;
     margin-right: 15px;

@@ -42,7 +42,7 @@ class TextColourSource extends React.Component {
                 return Modifier.removeInlineStyle(contentState, selection, color)
             }, editorState.getCurrentContent());
 
-        var nextEditorState = EditorState.push(
+        let nextEditorState = EditorState.push(
             editorState,
             nextContentState,
             'change-inline-style'
@@ -57,7 +57,7 @@ class TextColourSource extends React.Component {
             }, nextEditorState);
         }
 
-        // If there's a color and it's being toggled on, apply it.
+        // If there's a color, and it's being toggled on, apply it.
         if (toggledColor && !currentStyle.has(toggledColor)) {
             nextEditorState = RichUtils.toggleInlineStyle(
                 nextEditorState,
